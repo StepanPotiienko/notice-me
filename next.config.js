@@ -1,8 +1,15 @@
 /**
  * @type {import('next').NextConfig}
  */
-const nextConfig = {
+
+module.exports = {
+  webpack(config) {
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+    }
+
+    return config;
+  },
   output: "export",
 };
-
-module.exports = nextConfig;
